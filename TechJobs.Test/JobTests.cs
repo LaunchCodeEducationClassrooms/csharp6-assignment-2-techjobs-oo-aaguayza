@@ -30,7 +30,11 @@ namespace TechJobs.Tests
             Assert.AreEqual("Quality control", job3.JobType.Value);
             Assert.AreEqual("Persistence", job3.JobCoreCompetency.Value);
         }
-
+        [TestMethod]
+        public void TestJobsForEquality()
+        {
+            Assert.IsFalse(job1.Id == job2.Id);
+        }
     }
 }
 
