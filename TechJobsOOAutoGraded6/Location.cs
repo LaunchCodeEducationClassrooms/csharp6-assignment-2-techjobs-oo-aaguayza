@@ -17,7 +17,6 @@ namespace TechJobsOOAutoGraded6
         public Location(string value): this()
         {
             Value = value;
-            Id = nextId;
         }
         public override bool Equals(object obj)
         {
