@@ -3,7 +3,7 @@ namespace TechJobsOOAutoGraded6
 {
 	public class Location
 	{
-        public int Id { get; }
+        public int Id { get; set; }
         private static int nextId = 1;
         public string Value { get; set; }
 
@@ -17,6 +17,7 @@ namespace TechJobsOOAutoGraded6
         public Location(string value): this()
         {
             Value = value;
+            Id = nextId;
         }
         public override bool Equals(object obj)
         {
