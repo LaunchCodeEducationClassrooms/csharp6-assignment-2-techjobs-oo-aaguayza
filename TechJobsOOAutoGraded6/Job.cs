@@ -5,7 +5,7 @@ namespace TechJobsOOAutoGraded6
 	{
         
 
-            public int Id { get; }
+            public int Id { get; set; }
             private static int nextId = 1;
             public string Name { get; set; }
             public Employer EmployerName { get; set; }
@@ -19,33 +19,53 @@ namespace TechJobsOOAutoGraded6
             Id = nextId;
             nextId++;
         }
-            public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency): this()
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency) : this()
         {
-            Id=nextId;
-            Name=name;
-            EmployerName=employerName;
-            EmployerLocation=employerLocation;
-            JobType=jobType;   
+            Name = name;
+            EmployerName = employerName;
+            EmployerLocation = employerLocation;
+            JobType = jobType;
             JobCoreCompetency = jobCoreCompetency;
         }
-        // TODO: Task 3: Generate Equals() and GetHashCode() methods.  
-        public override bool Equals(object? obj)
+             public override bool Equals(object? obj)
         {
-            return obj is Job job &&
-                   Id == job.Id;
-        }
+                return obj is Job job &&
+                       Id == job.Id;
+            }
+        
 
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
         }
-    
+
 
         // TODO: Task 5: Generate custom ToString() method.
         //Until you create this method, you will not be able to print a job to the console.
-
-
-
+        public override string ToString()
+        {
+            if (Name == "")
+            {
+                Name = "Data not available";
+            }
+            if (EmployerName.Value == "")
+            {
+                EmployerName.Value = "Data not available";
+            }
+            if (EmployerLocation.Value == "")
+            {
+                EmployerLocation.Value = "Data not available";
+            }
+            if (JobType.Value == "")
+            {
+                JobType.Value = "Data not available";
+            }
+            if (JobCoreCompetency.Value == "")
+            {
+                JobCoreCompetency.Value = "Data not available";
+            }
+            return $"\nID: {Id}\nName: {Name}\nEmployer: {EmployerName.Value}\nLocation: {EmployerLocation.Value}\nPosition Type: {JobType.Value}\nCore Competency: {JobCoreCompetency.Value}\n";
+        }
     }
 }
 
