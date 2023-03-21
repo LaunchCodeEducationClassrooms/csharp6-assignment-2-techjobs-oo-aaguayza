@@ -6,7 +6,34 @@ using System.Threading.Tasks;
 
 namespace TechJobsOOAutoGraded6
 {
-    internal class JobField
+    public abstract class JobField
     {
+        public string Value { get; set; }
+        public int Id { get; }
+        private static int nextId = 1;
+        public JobField() {
+                Id = nextId;
+                nextId++;
+        }
+        public JobField(string value) : this()
+        {
+            Value = value;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is JobField field &&
+                   Id == field.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
+        public override string ToString()
+        {
+            return Value;
+        }
     }
 }
