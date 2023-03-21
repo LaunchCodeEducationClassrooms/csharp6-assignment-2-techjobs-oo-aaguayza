@@ -1,4 +1,4 @@
-﻿
+﻿using TechJobs.Tests;
 namespace TechJobsOO.Tests
 {
 	[TestClass]
@@ -8,7 +8,6 @@ namespace TechJobsOO.Tests
         //Uses jobs from the Job class.
         //Tests are numbered.
 
-        /*TODO: Task 5: Remove this line to uncomment the tests
 
         //Unit Test 1:  TestToStringStartsAndEndsWithNewLine  -----------------------
 
@@ -135,17 +134,16 @@ namespace TechJobsOO.Tests
             //comparing output to a text file.
             //id numbers may get a little wonky
 
-            string text = System.IO.File.ReadAllText("EmptyFieldTest.txt").ToString();
+            string text = System.IO.File.ReadAllText("EmptyFieldsTest.txt").ToString();
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
             var job = new RunTechJobs();
             job.RunProgram();
             var output = stringWriter.ToString();
-
             //verify
             Assert.AreEqual(text, output, "Empty string handling error");
         }
-        TODO: Task 5: Remove this line to uncomment the tests*/
+       
 
     }
 
